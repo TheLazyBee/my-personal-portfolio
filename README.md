@@ -2,9 +2,9 @@
 
 # My Personal Portfolio
 
-![Node.js](https://img.shields.io/badge/node-v18.18.0-green?style=flat-square&logo=node.js)
-![npm](https://img.shields.io/badge/npm-v9.0.0-red?style=flat-square&logo=npm)
-![Next.js](https://img.shields.io/badge/next.js-15.4.6-black?style=flat-square&logo=next.js)
+![Node.js](https://img.shields.io/badge/node-%3E%3D20.9.0-green?style=flat-square&logo=node.js)
+![npm](https://img.shields.io/badge/npm-10%2B-red?style=flat-square&logo=npm)
+![Next.js](https://img.shields.io/badge/next.js-16.0.7-black?style=flat-square&logo=next.js)
 ![React](https://img.shields.io/badge/react-19.1.0-blue?style=flat-square&logo=react)
 ![TypeScript](https://img.shields.io/badge/typescript-5.x-blue?style=flat-square&logo=typescript)
 ![Tailwind CSS](https://img.shields.io/badge/tailwindcss-4.x-cyan?style=flat-square&logo=tailwindcss)
@@ -22,7 +22,7 @@ A modern, responsive personal portfolio website showcasing my frontend developme
 
 ### Frontend
 
-- **Next.js 15.4.6** - React framework with App Router
+- **Next.js 16.0.7** - React framework with App Router
 - **React 19.1.0** - JavaScript library for building user interfaces
 - **TypeScript 5** - Type-safe JavaScript development
 - **Tailwind CSS 4** - Utility-first CSS framework
@@ -46,15 +46,15 @@ A modern, responsive personal portfolio website showcasing my frontend developme
 
 ### Prerequisites
 
-- Node.js 18.18.0 or higher
-- npm 9.0.0 or higher
+- Node.js 20.9.0 or higher
+- npm 10 or higher
 
 ### Setup
 
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/viboverse/my-personal-portfolio.git
+   git clone https://github.com/TheLazyBee/my-personal-portfolio.git
    cd my-personal-portfolio
    ```
 
@@ -79,11 +79,14 @@ A modern, responsive personal portfolio website showcasing my frontend developme
 - `npm run dev` - Start development server
 - `npm run build` - Build for production
 - `npm run start` - Start production server
+- `npm run typecheck` - Generate Next.js types and run the TypeScript compiler without emitting files
 - `npm run lint` - Run ESLint
 
 ## Deployment
 
 This portfolio is deployed on [Vercel](https://vercel.com). Any push to the main branch automatically triggers a new deployment.
+
+Pull requests run the same typecheck, lint, and build commands in GitHub Actions. CI only verifies changes; it never deploys. See [`docs/adr/0001-ci-verifies-vercel-deploys.md`](docs/adr/0001-ci-verifies-vercel-deploys.md).
 
 To deploy your own version:
 
