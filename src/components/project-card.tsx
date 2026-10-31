@@ -1,19 +1,7 @@
 import Image from "next/image";
-import { IconType } from "react-icons";
+import type { TechStackItem } from "@/data/projects";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa6";
-
-const techColors: Record<string, string> = {
-   SiReact: "#61DAFB",
-   SiNextdotjs: "#000000",
-   SiTypescript: "#3178C6",
-   SiJavascript: "#F7DF1E",
-   SiHtml5: "#E34F26",
-   SiCss3: "#1572B6",
-   SiTailwindcss: "#06B6D4",
-   SiVite: "#646CFF",
-   SiVercel: "#000000",
-};
 
 type ProjectCardProp = {
    title: string;
@@ -21,7 +9,7 @@ type ProjectCardProp = {
    image: string;
    demoUrl: string;
    githubUrl: string;
-   techStack: IconType[];
+   techStack: TechStackItem[];
 };
 
 export default function ProjectCard({
@@ -55,21 +43,14 @@ export default function ProjectCard({
 
             {/* Tech Stacks */}
             <div className="flex flex-wrap gap-2">
-               {techStack.map((TechIcon, index) => {
-                  const iconName = TechIcon.name;
-
-                  return (
-                     <div
-                        key={index}
-                        className="rounded-lg bg-gray-800 p-2 transition-colors hover:bg-gray-700"
-                     >
-                        <TechIcon
-                           className="text-lg"
-                           color={techColors[iconName]}
-                        />
-                     </div>
-                  );
-               })}
+               {techStack.map(({ icon: TechIcon, color }, index) => (
+                  <div
+                     key={index}
+                     className="rounded-lg bg-gray-800 p-2 transition-colors hover:bg-gray-700"
+                  >
+                     <TechIcon className="text-lg" color={color} />
+                  </div>
+               ))}
             </div>
 
             {/* Actions */}

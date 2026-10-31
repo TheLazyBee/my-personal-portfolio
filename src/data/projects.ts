@@ -1,3 +1,4 @@
+import type { IconType } from "react-icons";
 import {
    SiReact,
    SiTypescript,
@@ -13,6 +14,29 @@ import {
    SiClerk,
 } from "react-icons/si";
 
+export type TechStackItem = {
+   icon: IconType;
+   color: string;
+};
+
+// Each technology carries its own colour so cards never have to look one up at
+// render time; minification renames icon components, which broke the old
+// name-keyed lookup. Near-black brand colours use a legible shared variant.
+const TECH = {
+   react: { icon: SiReact, color: "#61DAFB" },
+   nextjs: { icon: SiNextdotjs, color: "#FFFFFF" },
+   typescript: { icon: SiTypescript, color: "#3178C6" },
+   javascript: { icon: SiJavascript, color: "#F7DF1E" },
+   html5: { icon: SiHtml5, color: "#E34F26" },
+   css3: { icon: SiCss3, color: "#1572B6" },
+   tailwindcss: { icon: SiTailwindcss, color: "#06B6D4" },
+   vite: { icon: SiVite, color: "#646CFF" },
+   vercel: { icon: SiVercel, color: "#FFFFFF" },
+   prisma: { icon: SiPrisma, color: "#04D5E7" },
+   postgresql: { icon: SiPostgresql, color: "#4169E1" },
+   clerk: { icon: SiClerk, color: "#8B6FFF" },
+} satisfies Record<string, TechStackItem>;
+
 export const PROJECTS_DATA = [
    {
       id: 3,
@@ -22,7 +46,13 @@ export const PROJECTS_DATA = [
       image: "/projects/weather-app.png",
       demoUrl: "https://react-weather-app-vtjz.vercel.app/",
       githubUrl: "https://github.com/viboverse/react-weather-app",
-      techStack: [SiReact, SiVite, SiVercel, SiTailwindcss, SiJavascript],
+      techStack: [
+         TECH.react,
+         TECH.vite,
+         TECH.vercel,
+         TECH.tailwindcss,
+         TECH.javascript,
+      ],
    },
    {
       id: 1,
@@ -32,7 +62,7 @@ export const PROJECTS_DATA = [
       image: "/projects/fetchflix.png",
       demoUrl: "https://fetch-movie-nine.vercel.app/",
       githubUrl: "https://github.com/viboverse/fetch-movie",
-      techStack: [SiReact, SiTailwindcss, SiCss3, SiJavascript],
+      techStack: [TECH.react, TECH.tailwindcss, TECH.css3, TECH.javascript],
    },
    {
       id: 2,
@@ -42,7 +72,14 @@ export const PROJECTS_DATA = [
       image: "/projects/tic-tac-toe.png",
       demoUrl: "https://tic-tac-toe-game-app-fawn.vercel.app/",
       githubUrl: "https://github.com/viboverse/tic-tac-toe-game-app",
-      techStack: [SiReact, SiTypescript, SiHtml5, SiCss3, SiVite, SiVercel],
+      techStack: [
+         TECH.react,
+         TECH.typescript,
+         TECH.html5,
+         TECH.css3,
+         TECH.vite,
+         TECH.vercel,
+      ],
    },
    {
       id: 4,
@@ -52,7 +89,14 @@ export const PROJECTS_DATA = [
       image: "/projects/project-manager-app.png",
       demoUrl: "https://project-manager-app-beige.vercel.app/",
       githubUrl: "https://github.com/viboverse/project-manager-app",
-      techStack: [SiReact, SiCss3, SiHtml5, SiVite, SiVercel, SiJavascript],
+      techStack: [
+         TECH.react,
+         TECH.css3,
+         TECH.html5,
+         TECH.vite,
+         TECH.vercel,
+         TECH.javascript,
+      ],
    },
    {
       id: 5,
@@ -62,7 +106,13 @@ export const PROJECTS_DATA = [
       image: "/projects/personal-portfolio.png",
       demoUrl: "https://my-personal-portfolio-lake-two.vercel.app/",
       githubUrl: "https://github.com/viboverse/my-personal-portfolio",
-      techStack: [SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiVercel],
+      techStack: [
+         TECH.react,
+         TECH.nextjs,
+         TECH.typescript,
+         TECH.tailwindcss,
+         TECH.vercel,
+      ],
    },
 ];
 
@@ -75,13 +125,13 @@ export const FEATURED_PROJECT = {
    demoUrl: "",
    githubUrl: "https://github.com/viboverse/linear-kanban",
    techStack: [
-      SiNextdotjs,
-      SiReact,
-      SiTypescript,
-      SiTailwindcss,
-      SiPrisma,
-      SiPostgresql,
-      SiClerk,
+      TECH.nextjs,
+      TECH.react,
+      TECH.typescript,
+      TECH.tailwindcss,
+      TECH.prisma,
+      TECH.postgresql,
+      TECH.clerk,
    ],
    comingSoon: true,
 };
@@ -96,11 +146,11 @@ export const HIGHLIGHTED_PROJECT = {
    demoUrl: "https://next-sleep-tracker-omega.vercel.app/",
    githubUrl: "https://github.com/viboverse/next-sleep-tracker",
    techStack: [
-      SiNextdotjs,
-      SiReact,
-      SiTypescript,
-      SiTailwindcss,
-      SiVercel,
-      SiPrisma,
+      TECH.nextjs,
+      TECH.react,
+      TECH.typescript,
+      TECH.tailwindcss,
+      TECH.vercel,
+      TECH.prisma,
    ],
 };

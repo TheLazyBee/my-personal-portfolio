@@ -1,16 +1,7 @@
 import Image from "next/image";
-import { IconType } from "react-icons";
+import type { TechStackItem } from "@/data/projects";
 import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 import { HiStar } from "react-icons/hi2";
-
-const techColors: Record<string, string> = {
-   SiReact: "#61DAFB",
-   SiNextdotjs: "#ffffff",
-   SiTypescript: "#3178C6",
-   SiTailwindcss: "#06B6D4",
-   SiPrisma: "#2D3748",
-   SiVercel: "#ffffff",
-};
 
 type HighlightedProjectCardProps = {
    title: string;
@@ -18,7 +9,7 @@ type HighlightedProjectCardProps = {
    image: string;
    demoUrl: string;
    githubUrl: string;
-   techStack: IconType[];
+   techStack: TechStackItem[];
 };
 
 export default function HighlightedProjectCard({
@@ -62,20 +53,14 @@ export default function HighlightedProjectCard({
 
                {/* Tech Stack */}
                <div className="flex flex-wrap gap-2">
-                  {techStack.map((TechIcon, index) => {
-                     const iconName = TechIcon.name;
-                     return (
-                        <div
-                           key={index}
-                           className="rounded-lg border border-gray-700 bg-gray-800/60 p-2 transition-all hover:border-cyan-500/50"
-                        >
-                           <TechIcon
-                              className="text-lg"
-                              color={techColors[iconName]}
-                           />
-                        </div>
-                     );
-                  })}
+                  {techStack.map(({ icon: TechIcon, color }, index) => (
+                     <div
+                        key={index}
+                        className="rounded-lg border border-gray-700 bg-gray-800/60 p-2 transition-all hover:border-cyan-500/50"
+                     >
+                        <TechIcon className="text-lg" color={color} />
+                     </div>
+                  ))}
                </div>
 
                {/* Actions */}
