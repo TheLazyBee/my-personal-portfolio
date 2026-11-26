@@ -11,7 +11,7 @@ export default function Footer() {
 
                <div className="flex items-center gap-6">
                   <a
-                     href="https://github.com/viboverse"
+                     href="https://github.com/TheLazyBee"
                      target="_blank"
                      rel="noopener noreferrer"
                      className="text-gray-400 transition-colors duration-200 hover:text-white"

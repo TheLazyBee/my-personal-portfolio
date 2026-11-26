@@ -96,4 +96,4 @@ To deploy your own version:
 
 ---
 
-**Built with ❤️ by [Vahab Afsharian](https://github.com/viboverse)**
+**Built with ❤️ by [Vahab Afsharian](https://github.com/TheLazyBee)**
