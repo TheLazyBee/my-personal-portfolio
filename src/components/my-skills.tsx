@@ -71,7 +71,7 @@ export default function MySkills() {
                      {skills.map((skill) => (
                         <div
                            key={skill.name}
-                           className="mx-8 flex items-center gap-3 rounded-lg border border-white/10 bg-white/5 px-6 py-4 transition-all duration-200 hover:bg-white/10"
+                           className="mx-8 flex flex-col items-center gap-3 rounded-lg border border-white/10 bg-white/5 px-6 py-4 transition-all duration-200 hover:bg-white/10"
                         >
                            {skill.icon}
                            <span className="font-medium whitespace-nowrap text-gray-200">
