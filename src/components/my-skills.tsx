@@ -2,6 +2,7 @@
 
 import { useEffect, useId, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import { FcLinux } from "react-icons/fc";
 import {
    SiAngular,
    SiCss3,
@@ -9,7 +10,6 @@ import {
    SiGithub,
    SiHtml5,
    SiJavascript,
-   SiLinux,
    SiNextdotjs,
    SiPython,
    SiReact,
@@ -97,7 +97,7 @@ export default function MySkills() {
       { name: "HTML", icon: <SiHtml5 color="#E34F26" size={48} /> },
       { name: "CSS", icon: <SiCss3 color="#1572B6" size={48} /> },
       { name: "Angular", icon: <SiAngular color="#DD0031" size={48} /> },
-      { name: "Linux", icon: <SiLinux color="#FCC624" size={48} /> },
+      { name: "Linux", icon: <FcLinux size={48} /> },
       { name: "Git", icon: <SiGit color="#F05032" size={48} /> },
       { name: "GitHub", icon: <SiGithub color="#FFFFFF" size={48} /> },
       { name: "Python", icon: <SiPython color="#3776AB" size={48} /> },
