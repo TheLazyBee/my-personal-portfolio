@@ -72,6 +72,7 @@ function ViteIcon() {
 export default function MySkills() {
    const groupRef = useRef<HTMLDivElement>(null);
    const [groupWidth, setGroupWidth] = useState(0);
+   const [pixelsPerSecond, setPixelsPerSecond] = useState(60);
 
    useEffect(() => {
       const group = groupRef.current;
@@ -84,6 +85,16 @@ export default function MySkills() {
       observer.observe(group);
 
       return () => observer.disconnect();
+   }, []);
+
+   useEffect(() => {
+      const smallScreen = window.matchMedia("(max-width: 639px)");
+      const updateSpeed = () => setPixelsPerSecond(smallScreen.matches ? 90 : 60);
+
+      updateSpeed();
+      smallScreen.addEventListener("change", updateSpeed);
+
+      return () => smallScreen.removeEventListener("change", updateSpeed);
    }, []);
 
    const skills = [
@@ -116,7 +127,7 @@ export default function MySkills() {
                className="flex w-max items-center py-8"
                animate={groupWidth > 0 ? { x: -groupWidth } : undefined}
                transition={{
-                  duration: groupWidth > 0 ? groupWidth / 60 : 0,
+                  duration: groupWidth > 0 ? groupWidth / pixelsPerSecond : 0,
                   repeat: Infinity,
                   ease: "linear",
                }}
@@ -131,12 +142,12 @@ export default function MySkills() {
                      {skills.map((skill) => (
                         <div
                            key={skill.name}
-                           className="mx-8 flex w-40 shrink-0 flex-col items-center gap-3 rounded-lg border border-white/10 bg-white/5 px-6 py-4 transition-all duration-200 hover:bg-white/10"
+                           className="mx-4 flex w-32 shrink-0 flex-col items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-3 py-3 transition-all duration-200 hover:bg-white/10 sm:mx-8 sm:w-40 sm:gap-3 sm:px-6 sm:py-4"
                         >
-                           <span className="flex h-12 w-12 shrink-0 items-center justify-center">
+                           <span className="flex h-9 w-9 shrink-0 items-center justify-center [&>svg]:h-full [&>svg]:w-full sm:h-12 sm:w-12">
                               {skill.icon}
                            </span>
-                           <span className="font-medium whitespace-nowrap text-gray-200">
+                           <span className="text-sm font-medium whitespace-nowrap text-gray-200 sm:text-base">
                               {skill.name}
                            </span>
                         </div>
